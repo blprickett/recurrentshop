@@ -885,7 +885,7 @@ class RecurrentSequential(RecurrentModel):
         self.return_states = return_states
         super(RecurrentModel, self).__init__(**kwargs)
         self.readout = readout
-        self.readout_activation = activations.get(readout_activation)
+        self.readout_activation = keras.activations.get(readout_activation)
         self.teacher_force = teacher_force
         self._optional_input_placeholders = {}
         if state_initializer:
@@ -1069,7 +1069,7 @@ class RecurrentSequential(RecurrentModel):
                   'return_states': self.return_states,
                   'state_sync': self.state_sync,
                   'state_initializer': self._serialize_state_initializer(),
-                  'readout_activation': activations.serialize(self.readout_activation)}
+                  'readout_activation': keras.activations.serialize(self.readout_activation)}
         base_config = super(RecurrentModel, self).get_config()
         config.update(base_config)
         return config
