@@ -1,4 +1,5 @@
 from keras.models import Model
+from keras import activations
 from keras import initializers
 from keras import constraints
 from keras import regularizers
